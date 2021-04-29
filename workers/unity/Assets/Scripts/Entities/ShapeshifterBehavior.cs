@@ -13,6 +13,8 @@ namespace Cubism
     {
         [Require] private ShapeshifterStateWriter shapeshifterStateWriter;
 
+        private Vector3 workerOrigin;
+
         private float revertProbabilityPerSec = 0.2f;
         private Vector3 velocity = Vector3.zero;
 
@@ -21,6 +23,11 @@ namespace Cubism
         void Start()
         {
 
+        }
+
+        private void OnEnable()
+        {
+            workerOrigin = GetComponent<LinkedEntityComponent>().Worker.Origin;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -58,18 +65,20 @@ namespace Cubism
                     0.0f,
                     (UnityEngine.Random.value - 0.5f) * 2.0f * driftSpeed
                 );
+                var driftAreaCenter = workerOrigin + new Vector3(shapeshifterStateWriter.Data.DriftAreaCenter.X, shapeshifterStateWriter.Data.DriftAreaCenter.Y, shapeshifterStateWriter.Data.DriftAreaCenter.Z);
+                var driftAreaExtents = new Vector3(shapeshifterStateWriter.Data.DriftAreaExtents.X, shapeshifterStateWriter.Data.DriftAreaExtents.Y, shapeshifterStateWriter.Data.DriftAreaExtents.Z);
                 // Stay with the specified bounds
                 transform.position = new Vector3(
                     Mathf.Clamp(
                         transform.position.x + Time.deltaTime * velocity.x,
-                        shapeshifterStateWriter.Data.DriftAreaCenter.X - shapeshifterStateWriter.Data.DriftAreaExtents.X,
-                        shapeshifterStateWriter.Data.DriftAreaCenter.X + shapeshifterStateWriter.Data.DriftAreaExtents.X
+                        driftAreaCenter.x - driftAreaExtents.x,
+                        driftAreaCenter.x + driftAreaExtents.x
                     ),
                     transform.position.y,
                     Mathf.Clamp(
                         transform.position.z + Time.deltaTime * velocity.z,
-                        shapeshifterStateWriter.Data.DriftAreaCenter.Z - shapeshifterStateWriter.Data.DriftAreaExtents.Z,
-                        shapeshifterStateWriter.Data.DriftAreaCenter.Z + shapeshifterStateWriter.Data.DriftAreaExtents.Z
+                        driftAreaCenter.z - driftAreaExtents.z,
+                        driftAreaCenter.z + driftAreaExtents.z
                    )
                 );
             }

@@ -70,7 +70,7 @@ namespace Cubism
                     0.25f,
                     (UnityEngine.Random.value - 0.5f) * 2.0f * spawnFieldSize
                 ),
-                worker.Origin,
+                Vector3.zero,
                 Vector3.one * spawnFieldSize
             );
 
