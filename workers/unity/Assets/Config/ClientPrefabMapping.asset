@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0598980a22146e5bb63df7b024cf2b0, type: 3}
+  m_Name: ClientPrefabMapping
+  m_EditorClassIdentifier: 
+  EntityRepresentationResolvers:
+  - id: 0
+  - id: 1
+  references:
+    version: 1
+    00000000:
+      type: {class: OwningWorkerEntityResolver, ns: Improbable.Gdk.PlayerLifecycle.Representation.Types,
+        asm: Improbable.Gdk.PlayerLifecycle}
+      data:
+        entityType: Player
+        ownedPrefab: {fileID: 6735467643743799209, guid: 6aa023571b48b8c449e8bcf4385a4904,
+          type: 3}
+        unownedPrefab: {fileID: 6735467643743799209, guid: 15988ef0565e15c4999fa9caea8c09fe,
+          type: 3}
+        requiredComponents: 
+    00000001:
+      type: {class: SimpleEntityResolver, ns: Improbable.Gdk.Core.Representation.Types,
+        asm: Improbable.Gdk.Core}
+      data:
+        entityType: Shapeshifter
+        prefab: {fileID: 1691066791380217845, guid: 6ef13919c5403144dac7895d612450e9,
+          type: 3}
+        requiredComponents: 

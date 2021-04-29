@@ -1,0 +1,11 @@
+package cubism;
+
+import "common.schema";
+
+component ShapeshifterState {
+  id = 2101;
+
+  bool restored = 1;
+  Vector3Float drift_area_center = 10;
+  Vector3Float drift_area_extents = 11;
+}

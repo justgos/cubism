@@ -1,0 +1,17 @@
+package cubism;
+
+import "common.schema";
+
+component PlayerCharacter {
+  id = 2010;
+
+  Vector3Float body_color = 1;
+}
+
+component PlayerAnimatorState {
+  id = 2020;
+
+  bool jumping = 1;
+  bool airborne = 2;
+  bool descending = 3;
+}

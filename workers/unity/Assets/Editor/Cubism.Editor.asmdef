@@ -1,0 +1,22 @@
+{
+    "name": "Cubism.Editor",
+    "references": [
+        "Cubism",
+        "Improbable.Gdk.BuildSystem",
+        "Improbable.Gdk.Core",
+        "Improbable.Gdk.Generated",
+        "Improbable.Gdk.QueryBasedInterestHelper",
+        "Unity.Entities"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
