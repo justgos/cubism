@@ -31,7 +31,7 @@ Implemented in _Assets/Scripts/Systems/ShapeshifterSpawnSystem.cs_
 
 ### Player creation flow changes
 
-A networked game should be able to authentice the connecting player and load their data from some external store, but by default the `PlayerLifecycle` creates a player object without any external input - meaning it doens't support an `async` form of the `CreatePlayerEntityTemplate` delegate. So i've made a modified `AsyncHandleCreatePlayerRequestSystem` (_Assets/Cubism/Scripts/Systems/AsyncHandleCreatePlayerRequestSystem.cs_) and unpacked the part linking it (_Assets/Cubism/Scripts/Workers/UnityGameLogicConnector.cs_). It sends a dummy `SessionKey` parameter which in read in the `CreatePlayerEntityTemplate` server-side method.  
+A networked game should be able to authentice the connecting player and load their data from some external store, but by default the `PlayerLifecycle` creates a player object without any external input - meaning it doens't support an `async` form of the `CreatePlayerEntityTemplate` delegate. So i've made a modified `AsyncHandleCreatePlayerRequestSystem` (_Assets/Scripts/Systems/AsyncHandleCreatePlayerRequestSystem.cs_) and unpacked the part linking it (_Assets/Scripts/Workers/UnityGameLogicConnector.cs_). It sends a dummy `SessionKey` parameter which in read in the `CreatePlayerEntityTemplate` server-side method.  
 _Note: for stability, the whole `PlayerLifecycle` should be unpacked, in case some update will change parts outside the modified System._  
 
 ### Customized Universal Rendering Pipeline shader
